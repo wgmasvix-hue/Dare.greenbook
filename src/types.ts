@@ -94,17 +94,23 @@ export type ContentType =
   | "Explanations" 
   | "Textbook Chapter"
   | "Feedback"
-  | "Syllabus Guide";
+  | "Syllabus Guide"
+  | "Notes"
+  | "Essay";
+
+export type Difficulty = "Easy" | "Medium" | "Hard";
 
 export interface GenerationRequest {
   subject: Subject;
   level: Level;
   grade: Grade;
   contentType: ContentType;
+  difficulty?: Difficulty;
   topic?: string;
   studentInput?: string; // For feedback or specific questions
   image?: string; // Base64 encoded image
   referenceContent?: string; // Text extracted from a reference textbook or document
+  sessionId?: string; // Unique ID for the current session to ensure variety
 }
 
 export interface Flashcard {
@@ -122,13 +128,37 @@ export interface QuizQuestion {
 export interface SavedMaterial {
   id: string;
   user_id?: string;
+  session_id?: string;
   subject: Subject;
   level: Level;
   grade: Grade;
   contentType: ContentType;
+  difficulty?: Difficulty;
   topic: string;
   content: any;
   generatedImage: string | null;
   audioUrl?: string | null;
+  timestamp: number;
+}
+
+export interface UserInteraction {
+  id: string;
+  user_id?: string;
+  session_id: string;
+  event_type: string;
+  details: any;
+  timestamp: number;
+}
+
+export interface Draft {
+  id: string;
+  user_id?: string;
+  subject: Subject;
+  level: Level;
+  grade: Grade;
+  contentType: ContentType;
+  difficulty?: Difficulty;
+  topic: string;
+  content: string;
   timestamp: number;
 }

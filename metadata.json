@@ -1,5 +1,5 @@
 {
   "name": "GREEN BOOK HBC ASSISTANT",
-  "description": "An intelligent exam preparation assistant for Zimbabwean students under the Heritage-Based Curriculum (HBC), featuring personalized accounts to sync saved notes, quizzes, and flashcards across devices.",
+  "description": "An intelligent exam preparation assistant for Zimbabwean students under the Heritage-Based Curriculum (HBC), powered by ChengetAI (DeepSeek). Features personalized accounts to sync saved notes, quizzes, and flashcards across devices.",
   "requestFramePermissions": []
 }
